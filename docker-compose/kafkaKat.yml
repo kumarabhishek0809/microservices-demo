@@ -1,0 +1,2 @@
+docker run -it --network=host confluentinc/cp-kafkacat kafkacat -L -b localhost:19092
+docker exec -it docker-compose_kafka-broker-1_1 /bin/bash
