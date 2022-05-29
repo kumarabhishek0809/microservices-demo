@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package com.mycompany.app.callback;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;

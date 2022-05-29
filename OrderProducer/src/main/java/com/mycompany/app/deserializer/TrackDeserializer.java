@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package com.mycompany.app.deserializer;
 
 import org.apache.kafka.common.serialization.Deserializer;
 

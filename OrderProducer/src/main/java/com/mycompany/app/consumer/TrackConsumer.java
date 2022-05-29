@@ -1,14 +1,14 @@
-package com.mycompany.app;
-
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
-import io.github.fernanda.maia.kafka.avro.Track;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.utils.CollectionUtils;
+package com.mycompany.app.consumer;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
+
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+
+import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import io.github.fernanda.maia.kafka.avro.Track;
 
 public class TrackConsumer {
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class TrackConsumer {
         props.setProperty("specific.avro.reader", "true");
         try(KafkaConsumer<Long, Track> consumer = new
                 KafkaConsumer<>(props)) {
-            consumer.subscribe(Arrays.asList("TrackAvroTopic"));
+            consumer.subscribe(Arrays.asList("OrderPartitionedTopic"));
             while(true) {
                 ConsumerRecords<Long, Track> records =
                         consumer.poll(Duration.ofSeconds(20));
