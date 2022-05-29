@@ -18,8 +18,9 @@ public class TrackProducer {
 		props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
 		props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
 		props.setProperty("partitioner.class", VIPPartitioner.class.getName());
-		props.setProperty(ProducerConfig.ACKS_CONFIG, "1");
-		props.setProperty(ProducerConfig.BUFFER_MEMORY_CONFIG, "1MB");
+		props.setProperty(ProducerConfig.ACKS_CONFIG, "-1");
+		props.setProperty("schema.registry.url", "http://localhost:8081");
+		props.setProperty(ProducerConfig.BUFFER_MEMORY_CONFIG, "1024000");
 		props.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
 		props.setProperty(ProducerConfig.RETRIES_CONFIG, "2");
 		props.setProperty(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, "400");
@@ -35,7 +36,7 @@ public class TrackProducer {
 		 */
 		
 		try (KafkaProducer<Long, Track> producer = new KafkaProducer<>(props)) {
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 100000; i++) {
 				Track track = Track.newBuilder().setId(i).setLatitude("20.576N").setLongitude("89.3639E").build();
 				ProducerRecord<Long, Track> record = new ProducerRecord<>("OrderPartitionedTopic", track.getId(),
 						track);
