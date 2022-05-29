@@ -4,6 +4,7 @@ import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.github.fernanda.maia.kafka.avro.Track;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.utils.CollectionUtils;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -26,6 +27,7 @@ public class TrackConsumer {
             while(true) {
                 ConsumerRecords<Long, Track> records =
                         consumer.poll(Duration.ofSeconds(20));
+                System.out.println("TOTAL COUNT OF COLLECT "+records.count());
                 records.forEach(c -> {
                     Track coordinates = c.value();
                     System.out.println("ID: " + c.key());
