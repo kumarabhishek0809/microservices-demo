@@ -26,6 +26,13 @@ public class TrackProducer {
 		props.setProperty(ProducerConfig.BATCH_SIZE_CONFIG,"1024000");
 		props.setProperty(ProducerConfig.LINGER_MS_CONFIG,"500");
 		props.setProperty(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG,"200");
+		props.setProperty(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
+		
+		/*
+		 * AT LEAST ONCE
+		 * AT MOST ONCE  >> MESSAGE GETTING LOST BUT NO RETRY. 
+		 * EXACTLY ONCE SEMANTICS >> ENABLE IDEMPOTENCY, 
+		 */
 		
 		try (KafkaProducer<Long, Track> producer = new KafkaProducer<>(props)) {
 			for (int i = 0; i < 10; i++) {
