@@ -1,17 +1,14 @@
 package com.kumar.security.config;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import com.kumar.security.util.MapperUtils;
 
-import java.util.List;
-import java.util.Map;
-
 @Component
-@Slf4j
 public class RedisHashComponent {
 
     private final RedisTemplate<String,Object> redisTemplate;
