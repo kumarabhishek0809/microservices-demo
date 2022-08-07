@@ -1,14 +1,15 @@
-package com.javatechie.security;
+package com.kumar.security;
 
-import com.javatechie.security.config.RedisHashComponent;
-import com.javatechie.security.dto.ApiKey;
-import com.javatechie.security.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
+
+import com.kumar.security.config.RedisHashComponent;
+import com.kumar.security.dto.ApiKey;
+import com.kumar.security.util.AppConstants;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;

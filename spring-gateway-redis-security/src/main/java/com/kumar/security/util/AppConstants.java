@@ -1,4 +1,4 @@
-package com.javatechie.security.util;
+package com.kumar.security.util;
 
 public class AppConstants {
     //service id or route id of student service

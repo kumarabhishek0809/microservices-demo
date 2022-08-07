@@ -1,4 +1,4 @@
-package com.javatechie.security.dto;
+package com.kumar.security.dto;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.javatechie.security.util;
+package com.kumar.security.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.experimental.UtilityClass;
